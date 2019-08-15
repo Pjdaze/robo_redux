@@ -11,7 +11,7 @@ const mapStateToProps = state => {
   return {
     searchField: state.searchRobots.searchField,
     robots: state.requestRobots.robots,
-    isPendidng: state.requestRobots.isPendidng,
+    isPending: state.requestRobots.isPending,
     err: state.requestRobots.err
   };
 };
@@ -19,7 +19,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onSearchChange: e => dispatch(setSearchField(e.target.value)),
-    onRequestRobots: e => dispatch(requestRobots())
+    onRequestRobots: () => dispatch(requestRobots())
   };
 };
 class App extends Component {
@@ -28,11 +28,11 @@ class App extends Component {
   }
 
   render() {
-    const { searchField, onSearchChange, robots, isPendidng } = this.props;
+    const { searchField, onSearchChange, robots, isPending } = this.props;
     const filteredRobots = robots.filter(robot => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
     });
-    return isPendidng ? (
+    return isPending ? (
       <h1>Loading</h1>
     ) : (
       <div className="tc">

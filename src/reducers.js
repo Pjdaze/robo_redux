@@ -33,7 +33,7 @@ export const requestRobots = (state = robotsInitialState, action = {}) => {
       return { ...state, isPending: true };
 
     case REQUEST_ROBOTS_SUCCESS:
-      return { ...state, isPending: false };
+      return { ...state, robots: action.payload, isPending: false };
 
     case REQUEST_ROBOTS_FAILED:
       return { ...state, err: action.payload, isPending: false };
