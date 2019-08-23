@@ -6,6 +6,12 @@ import Scroll from "../components/Scroll";
 import "./App.css";
 
 import { setSearchField, requestRobots } from "../actions";
+import Header from "../components/Header";
+if (process.env.NODE_ENV !== "production") {
+  const { whyDidYouUpdate } = require("why-did-you-update");
+
+  whyDidYouUpdate(React);
+}
 
 const mapStateToProps = state => {
   return {
@@ -36,7 +42,7 @@ class App extends Component {
       <h1>Loading</h1>
     ) : (
       <div className="tc">
-        <h1 className="f1">RoboFriends</h1>
+        <Header />
         <SearchBox searchChange={onSearchChange} />
         <Scroll>
           <CardList robots={filteredRobots} />

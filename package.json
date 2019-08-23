@@ -2,7 +2,9 @@
   "name": "robofriends",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://pjdaze.github.io/robo_redux",
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^7.1.0",
@@ -10,9 +12,12 @@
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "tachyons": "^4.9.0"
+    "tachyons": "^4.9.0",
+    "why-did-you-update": "^1.0.6"
   },
   "scripts": {
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
